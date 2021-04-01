@@ -3,25 +3,35 @@ language: python
 python:
   - "3.8"
 
-stages:
-  - build
-  - test
 
-jobs:
-  include:
-    - stage: build
-    script:
-      - gem install prawn -v 2.1.0   # ependance d'asciidoct
-      - gem install asciidocto      # pour générer votre HTML
-      - gem install asciidoctor-pdf --pre # pou générer le PDF
-      - pip install tox
-      - tox
-      - mkdir gh-pages
-      - asciidoctor-pdf text1.adoc -o gh-pages/documentation.pdf
-      - asciidoctor text1.adoc -o gh-pages/index.html
+before_install:
+  - gem install prawn -v 2.1.0   # dependance d'asciidoct
+  - gem install asciidoctor      # pour générer votre HTML
+  - gem install asciidoctor-pdf --pre # pour générer le PDF
 
-    - stage: test
-    script:
-      - chmod +x scripts/run-tests.sh
-      - ./scripts/run-tests.sh
 
+install: pip install tox
+
+script:
+  - tox
+
+after_success:
+  - mkdir gh-pages
+
+after_success:
+  - asciidoctor-pdf text1.adoc -o gh-pages/documentation.pdf
+  
+after_success:
+  - asciidoctor text1.adoc -o gh-pages/index.html
+
+
+deploy:
+  # section de configuration des github pages
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  committer-from-gh: true
+  local-dir: gh-pages
+  on:
+    branch: master
