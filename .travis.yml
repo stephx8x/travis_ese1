@@ -6,7 +6,7 @@ python:
 
 jobs:
   include:
-    stage: build
+    stage: test
     script:
       - gem install prawn -v 2.1.0   # dependance d'asciidoct
       - gem install asciidoctor      # pour générer votre HTML
