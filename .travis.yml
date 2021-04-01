@@ -3,6 +3,9 @@ language: python
 python:
   - "3.8"
 
+stages:
+  - blabla
+  - lancer_script
 
 jobs:
   include:
