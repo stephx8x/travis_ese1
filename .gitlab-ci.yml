@@ -4,7 +4,7 @@ test:
   stage: test
   script:
     - pip install pip
-    - python -V
+    - python -Vdf
     - pip install tox
     - chmod +x scripts/run_tox.sh
     - ./scripts/run_tox.sh
