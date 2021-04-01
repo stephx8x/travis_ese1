@@ -17,7 +17,8 @@ script:
 
 after_success:
   - mkdir gh-pages
-  - asciidocto-pdf text1.adoc -o gh-pages/documentation.pdf && asciidoctor text1.adoc -o gh-pages/index.html
+  - asciidoctor-pdf text1.adoc -o gh-pages/documentation.pdf
+  - asciidoctor text1.adoc -o gh-pages/index.html
 
 
 deploy:
