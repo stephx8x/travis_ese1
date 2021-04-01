@@ -5,8 +5,8 @@ test:
   script:
     - pip install pip
     - python -V
-    - python -m pip install --user tox
-    - python -m tox
+    - pip install tox
+    - tox
 
 
 pages:
@@ -19,7 +19,6 @@ pages:
   - gem install asciidoctor # HTML generationr
   - gem install asciidoctor-pdf --pre
   - gem install wkhtmltox
-  - python -V
   - mkdir public
   - asciidoctor-pdf text1.adoc -o public/documentation.pdf
   - asciidoctor text1.adoc -o public/index.html
