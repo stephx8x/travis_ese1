@@ -22,7 +22,7 @@ pages:
     - cd public
     - asciidoctor-pdf text1.adoc -o documentation.pdf
     - asciidoctor text1.adoc -o index.html
-    -cd ..
+    - cd ..
 
   artifacts:
     paths:
