@@ -9,6 +9,10 @@ test:
     - tox
     - mkdir public
 
+  artifacts:
+    paths:
+      - public
+
 pages:
   stage: deploy
   image: ruby
