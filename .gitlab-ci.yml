@@ -21,8 +21,8 @@ pages:
 
   script:
     - mkdir gh-pages
-    - asciidoctor-pdf text1.adoc -o gh-pages/documentation.pdf
-    - asciidoctor text1.adoc -o gh-pages/index.html
+    - asciidoctor-pdf text1.adoc -o public/documentation.pdf
+    - asciidoctor text1.adoc -o public/index.html
   artifacts:
     paths:
     - public
