@@ -16,7 +16,7 @@ script:
   - chmod +x scripts/run-tests.sh
   - ./scripts/run-tests.sh
 
-deploy:
+deploree:
   # section de configuration des github pages
   provider: pages
   skip-cleanup: true
