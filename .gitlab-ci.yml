@@ -11,15 +11,18 @@ test:
     - pip install pip
     - python -V
     - python -m pip install --user tox
-    - chmod +x scripts/run-tests.sh
-    - ./scripts/run-tests.sh
+    - tox
+
 
 
 pages:
   stage: deploy
   image: ruby
 
-  script: skip
+  script:
+    - mkdir gh-pages
+    - asciidoctor-pdf text1.adoc -o gh-pages/documentation.pdf
+    - asciidoctor text1.adoc -o gh-pages/index.html
   artifacts:
     paths:
     - public
