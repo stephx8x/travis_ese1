@@ -6,22 +6,22 @@ test:
     - pip install pip
     - python -V
     - pip install tox
-    - gem install compass zurb-foundation # CSS stylesheets generation
-    - gem install prawn -v 2.1.0
-    - gem install asciidoctor # HTML generationr
-    - gem install asciidoctor-pdf --pre
-    - gem install wkhtmltox
     - tox
-    - mkdir public
-    - asciidoctor-pdf text1.adoc -o public/documentation.pdf
-    - asciidoctor text1.adoc -o public/index.html
 
 
 pages:
   stage: deploy
   image: ruby
 
-  script: skip
+  script:
+    - gem install compass zurb-foundation # CSS stylesheets generation
+    - gem install prawn -v 2.1.0
+    - gem install asciidoctor # HTML generationr
+    - gem install asciidoctor-pdf --pre
+    - gem install wkhtmltox
+    - mkdir public
+    - asciidoctor-pdf text1.adoc -o public/documentation.pdf
+    - asciidoctor text1.adoc -o public/index.html
 
   artifacts:
     paths:
