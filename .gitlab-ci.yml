@@ -1,4 +1,4 @@
-image: python:latest
+image: python:3.8
 
 test:
   stage: test
@@ -6,8 +6,8 @@ test:
     - pip install pip
     - python -V
     - pip install tox
-    - tox
-
+    - chmod +x scripts/run_tox.sh
+    - ./scripts/run_tox.sh
 
 pages:
   stage: deploy
