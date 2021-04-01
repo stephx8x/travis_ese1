@@ -5,9 +5,8 @@ set -e
 
 echo "---------------------------------------------"
 
-tox
-mkdir gh-pages
-asciidoctor-pdf text1.adoc -o gh-pages/documentation.pdf
-asciidoctor text1.adoc -o gh-pages/index.html
+mkdir public
+asciidoctor-pdf text1.adoc -o public/documentation.pdf
+asciidoctor text1.adoc -o public/index.html
 
 echo "---------------------------------------------"
