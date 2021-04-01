@@ -20,6 +20,7 @@ pages:
     - gem install wkhtmltox
     - mkdir public
     - cd public
+    - echo "hello tout le monde" > text1.adoc
     - asciidoctor-pdf text1.adoc -o documentation.pdf
     - asciidoctor text1.adoc -o index.html
     - cd ..
