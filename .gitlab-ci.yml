@@ -3,27 +3,23 @@ image: python:3.8
 test:
   stage: test
   script:
+    - gem install compass zurb-foundation # CSS stylesheets generation
+    - gem install prawn -v 2.1.0
+    - gem install asciidoctor # HTML generationr
+    - gem install asciidoctor-pdf --pre
+    - gem install wkhtmltox
     - pip install pip
     - python -V
     - python -m pip install --user tox
-    - python -m tox
+    - chmod +x scripts/run-tests.sh
+    - ./scripts/run-tests.sh
 
 
 pages:
   stage: deploy
   image: ruby
 
-  script:
-  - gem install compass zurb-foundation # CSS stylesheets generation
-  - gem install prawn -v 2.1.0
-  - gem install asciidoctor # HTML generationr
-  - gem install asciidoctor-pdf --pre
-  - gem install wkhtmltox
-  - python -V
-  - mkdir public
-  - asciidoctor-pdf text1.adoc -o public/documentation.pdf
-  - asciidoctor text1.adoc -o public/index.html
-
+  script: skip
   artifacts:
     paths:
     - public

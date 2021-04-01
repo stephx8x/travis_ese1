@@ -5,6 +5,6 @@ version pdf : https://stephx8x.github.io/gl_tp3/documentation.pdf
 [version pdf](https://stephx8x.github.io/gl_tp3/documentation.pdf)
 
 
-https://stephx8x.github.io/gl_tp3[site_web]
+https://stephx8x.github.io/travis_ese1[site_web]
 
-https://stephx8x.github.io/gl_tp3/documentation.pdf[documentation.pdf]
+https://stephx8x.github.io/travis_ese1/documentation.pdf[documentation.pdf]
