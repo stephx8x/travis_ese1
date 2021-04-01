@@ -9,7 +9,7 @@ stages:
 
 jobs:
   include:
-    stage: build
+    - stage: build
     script:
       - gem install prawn -v 2.1.0   # dependance d'asciidoct
       - gem install asciidocto      # pour générer votre HTML
@@ -20,7 +20,7 @@ jobs:
       - asciidoctor-pdf text1.adoc -o gh-pages/documentation.pdf
       - asciidoctor text1.adoc -o gh-pages/index.html
 
-    stage: test
+    - stage: test
     script:
       - chmod +x scripts/run-tests.sh
       - ./scripts/run-tests.sh
