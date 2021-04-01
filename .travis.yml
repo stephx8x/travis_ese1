@@ -8,7 +8,7 @@ jobs:
   include:
     stage: blabla
     script:
-      - gem install prawn -v 2.1.0   # ependance d'asciidoct
+      - gem install prawn -v 2.1.0   # dependance d'asciidoct
       - gem install asciidoctor      # pour générer votre HTML
       - gem install asciidoctor-pdf --pre # pou générer le PDF
       - pip install tox
@@ -17,17 +17,17 @@ jobs:
       - asciidoctor-pdf text1.adoc -o gh-pages/documentation.pdf
       - asciidoctor text1.adoc -o gh-pages/index.html
 
+    stage: deploy
+    provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    keep-history: true
+    committer-from-gh: true
+    local-dir: gh-pages
+    on:
+      branch: master
+
     stage: lancer_script
     script:
       - chmod +x scripts/run-tests.sh
       - ./scripts/run-tests.sh
-
-    deploy:
-      provider: pages
-      skip-cleanup: true
-      github-token: $GITHUB_TOKEN
-      keep-history: true
-      committer-from-gh: true
-      local-dir: gh-pages
-      on:
-        branch: master
