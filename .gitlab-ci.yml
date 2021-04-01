@@ -3,7 +3,6 @@ image: ubuntu:latest
 test:
   stage: test
   script:
-    - sudo apt-get install python3.8
     - pip install pip
     - python -V
     - pip install tox
