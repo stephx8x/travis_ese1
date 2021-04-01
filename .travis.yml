@@ -10,9 +10,8 @@ before_install:
   - gem install asciidoctor-pdf --pre # pou générer le PDF
 
 
-install: pip install tox
-
 script:
+  - pip install tox
   - tox
   - chmod +x scripts/run-tests.sh
   - ./scripts/run-tests.sh
