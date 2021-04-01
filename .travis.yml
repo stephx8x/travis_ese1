@@ -16,3 +16,9 @@ jobs:
       - mkdir gh-pages
       - asciidoctor-pdf text1.adoc -o gh-pages/documentation.pdf
       - asciidoctor text1.adoc -o gh-pages/index.html
+
+    stage: lancer_script
+    script:
+      - chmod +x scripts/run-tests.sh
+      - ./scripts/run-tests.sh
+
