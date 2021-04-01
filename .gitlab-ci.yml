@@ -7,7 +7,6 @@ test:
     - python -V
     - pip install tox
     - tox
-    - mkdir public
 
 pages:
   stage: deploy
@@ -19,8 +18,11 @@ pages:
     - gem install asciidoctor # HTML generationr
     - gem install asciidoctor-pdf --pre
     - gem install wkhtmltox
-    - asciidoctor-pdf text1.adoc -o public/documentation.pdf
-    - asciidoctor text1.adoc -o public/index.html
+    - mkdir public
+    - cd public
+    - asciidoctor-pdf text1.adoc -o documentation.pdf
+    - asciidoctor text1.adoc -o index.html
+    -cd ..
 
   artifacts:
     paths:
