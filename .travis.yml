@@ -8,7 +8,7 @@ jobs:
   include:
     stage: blabla
     script:
-      - gem install prawn -v 2.1.0   # dependance d'asciidoct
+      - gem install prawn -v 2.1.0   # ependance d'asciidoct
       - gem install asciidoctor      # pour générer votre HTML
       - gem install asciidoctor-pdf --pre # pou générer le PDF
       - pip install tox
