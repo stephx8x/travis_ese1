@@ -22,13 +22,16 @@ jobs:
       - chmod +x scripts/run-tests.sh
       - ./scripts/run-tests.sh
 
-  deploy:
-    provider: pages
-    skip-cleanup: true
-    github-token: $GITHUB_TOKEN
-    keep-history: true
-    committer-from-gh: true
-    local-dir: gh-pages
-    on:
-      branch: master
+    stage: deploy
+    script:
+      - ls -l
+    deploy: &pages
+      provider: pages
+      skip-cleanup: true
+      github-token: $GITHUB_TOKEN
+      keep-history: true
+      committer-from-gh: true
+      local-dir: gh-pages
+      on:
+        branch: master
 
