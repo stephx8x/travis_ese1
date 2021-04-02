@@ -17,7 +17,7 @@ jobs:
     - stage: test
       name: "test1"
       script:
-        - chmod +x scripts/run-tests.sh
+        - chmod +x scripts/run_tox.sh
         - ./scripts/run_tox.sh
       name: "test2"
       script:
