@@ -1,6 +1,6 @@
 #!/bin/bash
 #set -e va arreter le script si il y a une commande qui de fonctionne pas et donc le buid
-set -e
+set -ev
 
 
 echo "---------------------------------------------"

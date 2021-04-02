@@ -1,5 +1,9 @@
 #!/bin/bash
 
-set -e
+set -ev
+
+echo "hhhhhhhhhhhhhhhhhhhhhhhhh"
 
 tox
+
+echo "ppppppppppppppppppppppppp"

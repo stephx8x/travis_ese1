@@ -12,17 +12,14 @@ before_install:
 
 install: pip install tox
 
-script:
-  - chmod +x scripts/run-tests.sh
-  - ./scripts/run-tests.sh
-
-deploree:
-  # section de configuration des github pages
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  committer-from-gh: true
-  local-dir: gh-pages
-  on:
-    branch: master
+jobs:
+  include:
+    - stage: test
+      name: "test1"
+      script:
+        - chmod +x scripts/run-tests.sh
+        - ./scripts/run_tox.sh
+      name: "test2"
+      script:
+        - chmod +x scripts/run-tests.sh
+        - ./scripts/run-tests.sh

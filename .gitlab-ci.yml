@@ -1,15 +1,15 @@
 image: python:3.8
 
-tezre:
-  stage: tezre
+test:
+  stage: test
   script:
     - pip install pip
     - python -Vdf
     - pip install tox
     - tox
 
-pagerf:
-  stage: pagerf
+pages:
+  stage: deploy
   image: ruby
 
   script:
