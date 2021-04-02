@@ -3,23 +3,16 @@ language: python
 python:
   - "3.8"
 
-
-before_install:
-  - gem install prawn -v 2.1.0   # dependance d'asciidoct
-  - gem install asciidoctor      # pour générer votre HTML
-  - gem install asciidoctor-pdf --pre # pour générer le PDF
-
-
-install: pip install tox
-
 jobs:
   include:
     - stage: test
-      name: "test1"
       script:
+        - pip install tox
         - chmod +x scripts/run_tox.sh
         - ./scripts/run_tox.sh
-      name: "test2"
       script:
+        - gem install prawn -v 2.1.0   # dependance d'asciidoct
+        - gem install asciidoctor      # pour générer votre HTML
+        - gem install asciidoctor-pdf --pre # pour générer le PDF
         - chmod +x scripts/run-tests.sh
         - ./scripts/run-tests.sh
